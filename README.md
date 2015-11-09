@@ -32,16 +32,16 @@ Extend module with Geminus and define some properties:
 require "geminus"
 
 module Distribution
-  extend Geminus
+  include Geminus
 
-  prop :gentoo do
-    prop :name,     "Gentoo".freeze
-    prop :homepage, "https://www.gentoo.org/".freeze
+  property :gentoo do
+    property :name,     "Gentoo".freeze
+    property :homepage, "https://www.gentoo.org/".freeze
   end
 
-  prop :debian do
-    prop :name,     "Debian".freeze
-    prop :homepage, "https://www.debian.org/".freeze
+  property :debian do
+    property :name,     "Debian".freeze
+    property :homepage, "https://www.debian.org/".freeze
   end
 end
 ```
@@ -56,7 +56,7 @@ Then you can create dynamically generated JavaScript:
 
 ``` ruby
 // file: geminus.js.erb
-<%= Geminus.generate_js %>
+<%= Geminus.generate %>
 ```
 
 Sourcing that dynamically generated JS file on your frontend will provide you
